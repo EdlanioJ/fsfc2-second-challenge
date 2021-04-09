@@ -1,34 +1,40 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { CreateRouteDto } from './dto/create-route.dto';
-import { UpdateRouteDto } from './dto/update-route.dto';
-import { Route, RouteDocument } from './entities/route.entity';
+import { Route } from './entities/route.entity';
 
 @Injectable()
 export class RoutesService {
-  constructor(
-    @InjectModel(Route.name) private routeModel: Model<RouteDocument>,
-  ) {}
+  private routes: Route[] = [
+    {
+      title: 'Uma Rota em Paris, França',
+      startPosition: { lat: 48.8817373, lng: 2.3517782 },
+      endPosition: { lat: 48.9060586, lng: 2.3347837 },
+    },
+    {
+      title: 'Uma Rota em Berlin, Alemanha',
+      startPosition: { lat: 52.3536393, lng: 13.1804128 },
+      endPosition: { lat: 52.5065133, lng: 13.1445545 },
+    },
 
-  create(createRouteDto: CreateRouteDto) {
-    const routeModel = new this.routeModel(createRouteDto);
-    return routeModel.save();
-  }
+    {
+      title: 'Uma Rota em Luanda, Angola',
+      startPosition: { lat: -8.8831258, lng: 13.4943535 },
+      endPosition: { lat: -8.8096111, lng: 13.235178 },
+    },
+
+    {
+      title: 'Uma Rota em Nova York, EUA',
+      startPosition: { lat: 40.7367126, lng: -74.1597814 },
+      endPosition: { lat: 40.6971494, lng: -74.2598655 },
+    },
+
+    {
+      title: 'Uma Rota no Rio de Janeiro, Brasil',
+      startPosition: { lat: -22.729397, lng: -43.5613797 },
+      endPosition: { lat: -22.9138851, lng: -43.7261746 },
+    },
+  ];
 
   findAll() {
-    return this.routeModel.find().exec();
-  }
-
-  findOne(id: string) {
-    return this.routeModel.findById(id);
-  }
-
-  update(id: string, updateRouteDto: UpdateRouteDto) {
-    return this.routeModel.findByIdAndUpdate(id, updateRouteDto).exec();
-  }
-
-  remove(id: string) {
-    return this.routeModel.findByIdAndDelete(id).exec();
+    return this.routes;
   }
 }
