@@ -1,9 +1,11 @@
-FROM node:12.14-alpine3.11
+FROM node:12.14.0-alpine3.11
 
-RUN apk add --no-cache bash
+WORKDIR /usr/src/app
 
-RUN yarn global add @nestjs/cli@7.5.6
+COPY package*.json ./
 
-USER node
+RUN yarn
 
-WORKDIR /home/node/app
+COPY .  .
+
+CMD ["yarn","start:dev"]

@@ -17,6 +17,12 @@
   text-transform: uppercase;
 }
 
+.content h2 {
+  padding: 16px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
 .content hr {
   width: 100%;
   background: #343434;
