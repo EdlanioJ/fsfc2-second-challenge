@@ -1,4 +1,4 @@
-<h1 align="center">FSFC" Second Challenge</h1>
+<h1 align="center">FSFC 2 Second Challenge</h1>
 
 ## Running the app
 
