@@ -6,5 +6,5 @@
 # development
 $ docker-compose up
 
-#run on httt://localhost:3001
+#run on http://localhost:3001
 ```
