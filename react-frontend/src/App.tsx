@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import RouteList, { Route } from './components/RouteList';
 import styles from './App.module.css';
 
-const API_URL = process.env.REACT_APP_API_URL;
-
 function App() {
   const [routes, setRoutes] = useState<Route[]>([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/routes`)
+    fetch('http://localhost:3000/routes')
       .then((data) => data.json())
       .then((data) => setRoutes(data));
   }, []);
