@@ -6,6 +6,8 @@ First you need to install [Kind](https://kind.sigs.k8s.io/), then:
 
 ```bash
 $ kind create cluster --config=kind.yml
+$ kubectl cluster-info --context kind-imersao-fsfc2
+
 $ kubectl apply -f backend.yml
 $ kubectl apply -f frontend.yml
 
